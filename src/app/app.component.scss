@@ -1,0 +1,82 @@
+@import "../colors.scss";
+
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#logos {
+  background-color: $magenta;
+  display: flex;
+  width: 100vw;
+  height: 5vh;
+  align-items: center;
+  padding: 10px 0;
+
+  img {
+    height: 4vh;
+    width: auto;
+    margin: 0 20px;
+  }
+}
+
+#main-content {
+  height: 95vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+
+  #title {
+    color: #fff;
+    line-height: 4vh;
+    font-size: 4vh;
+    margin: 2vh;
+  }
+
+  .message {
+    color: #fff;
+    line-height: 3vh;
+    font-size: 3vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    font-weight: 700;
+
+    svg {
+      width: 3vw;
+      fill: #fff;
+    }
+  }
+}
+
+.base-background {
+  background-size: 100% 700%;
+  background-image: linear-gradient(
+    -20deg,
+    $red 50%,
+    $green 50%,
+    $green 75%,
+    $blue 75%
+  );
+  transition: background-position 0.3s;
+}
+
+.hasMask {
+  background-position: 0 33%;
+}
+
+.noMask {
+  background-position: 0 66%;
+}
+
+.neutral {
+  background-position: 0 0%;
+}
+
+#debug {
+  position: fixed;
+  bottom: 0px;
+}
