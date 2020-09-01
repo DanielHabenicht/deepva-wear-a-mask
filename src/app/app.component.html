@@ -75,7 +75,7 @@
     </p>
   </div>
 </div>
-<div id="debug">
+<div id="debug" *ngIf="debug">
   <button (click)="detectionState = detectionStateEnum.hasMask">Mask</button>
   <button (click)="detectionState = detectionStateEnum.noMask">noMask</button>
   <button (click)="detectionState = detectionStateEnum.neutral">neutral</button>

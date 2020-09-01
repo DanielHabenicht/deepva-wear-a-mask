@@ -2,6 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { WebcamImage, WebcamInitError } from 'ngx-webcam';
 import { Observable, Observer } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { Observable, Observer } from 'rxjs';
   ],
 })
 export class AppComponent implements OnInit {
+  public debug: boolean = !environment.production;
   detectionState: DetectionState = DetectionState.neutral;
   detectionStateEnum: typeof DetectionState = DetectionState;
   public innerWidth: number = 0;
