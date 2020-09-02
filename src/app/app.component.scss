@@ -62,30 +62,6 @@
   }
 }
 
-.base-background {
-  background-size: 100% 700%;
-  background-image: linear-gradient(
-    -20deg,
-    $red 50%,
-    $green 50%,
-    $green 75%,
-    $blue 75%
-  );
-  transition: background-position 0.3s;
-}
-
-.hasMask {
-  background-position: 0 33%;
-}
-
-.noMask {
-  background-position: 0 66%;
-}
-
-.neutral {
-  background-position: 0 0%;
-}
-
 #debug {
   position: fixed;
   bottom: 0px;

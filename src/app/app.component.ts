@@ -1,4 +1,4 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import { animate, style, state, keyframes, transition, trigger } from '@angular/animations';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { WebcamImage, WebcamInitError } from 'ngx-webcam';
 import { Observable, Observer } from 'rxjs';
@@ -13,6 +13,99 @@ import { environment } from 'src/environments/environment';
       transition(':enter', [
         style({ opacity: 0 }),
         animate('100ms', style({ opacity: 1 })),
+      ]),
+    ]),
+    trigger('background', [
+      state('hasMask', style({
+        "background-color": "var(--green)"
+      })),
+      state('noMask', style({
+        "background-color": "var(--red)"
+      })),
+      state('neutral', style({
+        "background-color": "var(--blue)"
+      })),
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('100ms', style({ opacity: 1 })),
+      ]),
+      transition('hasMask => noMask', [
+        animate('0.3s', keyframes([
+          style({ 
+          "background-position": "0 0",
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--red) 50%, var(--green) 50%)" 
+          }),
+          style({ 
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--red) 50%, var(--green) 50%)",
+          "background-position": "0 100%" }),
+        ])),
+      ]),
+      transition('noMask => hasMask', [
+        animate('0.3s', keyframes([
+          style({ 
+          "background-position": "0 0",
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--green) 50%, var(--red) 50%)" 
+          }),
+          style({ 
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--green) 50%, var(--red) 50%)",
+          "background-position": "0 100%" }),
+        ])),
+      ]),
+      transition('noMask => neutral', [
+        animate('0.3s', keyframes([
+          style({ 
+          "background-position": "0 0",
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--blue) 50%, var(--red) 50%)" 
+          }),
+          style({ 
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--blue) 50%, var(--red) 50%)",
+          "background-position": "0 100%" }),
+        ])),
+      ]),
+      transition('hasMask => neutral', [
+        animate('0.3s', keyframes([
+          style({ 
+          "background-position": "0 0",
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--blue) 50%, var(--green) 50%)" 
+          }),
+          style({ 
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--blue) 50%, var(--green) 50%)",
+          "background-position": "0 100%" }),
+        ])),
+      ]),
+      transition('neutral => hasMask', [
+        animate('0.3s', keyframes([
+          style({ 
+          "background-position": "0 0",
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--green) 50%, var(--blue) 50%)" 
+          }),
+          style({ 
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--green) 50%, var(--blue) 50%)",
+          "background-position": "0 100%" }),
+        ])),
+      ]),
+      transition('neutral => noMask', [
+        animate('0.3s', keyframes([
+          style({ 
+          "background-position": "0 0",
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--red) 50%, var(--blue) 50%)" 
+          }),
+          style({ 
+          "background-size": "100% 300%",
+          "background-image": "linear-gradient(-20deg, var(--red) 50%, var(--blue) 50%)",
+          "background-position": "0 100%" }),
+        ])),
       ]),
     ]),
   ],
@@ -65,7 +158,7 @@ export class AppComponent implements OnInit {
 
 export enum DetectionState {
   cameraDeactivated,
-  neutral,
-  hasMask,
-  noMask,
+  neutral = 'neutral',
+  hasMask = 'hasMask',
+  noMask = 'noMask',
 }

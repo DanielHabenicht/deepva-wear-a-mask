@@ -1,4 +1,6 @@
 @import "fonts.scss";
+@import "colors.scss";
+
 html,
 body {
   width: 100%;
@@ -7,3 +9,12 @@ body {
   padding: 0;
   font-family: TeleNeo, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
+
+
+:root {
+  --red: #{$red};
+  --green: #{$green};
+  --blue: #{$blue};
+  --magenta: #{$magenta}
+}
+ 
