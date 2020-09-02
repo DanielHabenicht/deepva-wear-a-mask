@@ -1,6 +1,12 @@
 <div id="logos">
-  <img src="assets/t-systems-logo.svg">
-  <img src="assets/deep-va-logo.svg">
+  <div>
+
+    <img src="assets/t-systems-logo.svg">
+    <img src="assets/deep-va-logo.svg">
+  </div>
+  <div>
+    <img id="claim" src="assets/t-systems-claim.svg">
+  </div>
 </div>
 <div id="main-content" class="base-background"
   [ngClass]="[detectionState == detectionStateEnum.noMask ? 'noMask' : detectionState == detectionStateEnum.hasMask ? 'hasMask' : 'neutral']">

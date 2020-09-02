@@ -13,12 +13,22 @@
   width: 100vw;
   height: 5vh;
   align-items: center;
-  padding: 10px 0;
+  justify-content: space-between;
+  padding: 2vh 0;
 
+  div {
+    display: flex;
+    height: 5vh;
+    align-items: center;
+  }
   img {
     height: 4vh;
     width: auto;
     margin: 0 20px;
+  }
+
+  #claim {
+    height: 2vh;
   }
 }
 
