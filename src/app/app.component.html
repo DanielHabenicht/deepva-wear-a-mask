@@ -10,18 +10,34 @@
 </div>
 <div id="main-content" class="base-background" [@background]="detectionState">
 
+  <div id="noConnection" *ngIf="detectionState==detectionStateEnum.noConnection">
+    ● No Connection to Server
+  </div>
+
+
   <div *ngIf="detectionState != detectionStateEnum.cameraDeactivated" id="title">Are you wearing a mask?</div>
-  <webcam *ngIf="detectionState != detectionStateEnum.cameraDeactivated" id="video"
-    (initError)="handleInitError($event)" [width]="innerWidth /2" [height]="innerHeight /2" [allowCameraSwitch]="true"
-    [trigger]="captureImageObservable" (imageCapture)="capturedImage($event)">
-  </webcam>
+  <div class="overlay-container">
+    <webcam *ngIf="detectionState != detectionStateEnum.cameraDeactivated" id="video"
+      (initError)="handleInitError($event)" [width]="innerWidth /2" [height]="innerHeight /2" [allowCameraSwitch]="true"
+      [trigger]="captureImageObservable" (imageCapture)="capturedImage($event)">
+    </webcam>
+    <div class="box-container">
+      <div class="face-box" *ngFor="let face of faces" [ngStyle]="getStyle(face.box)">
+        <span style="color: white">{{face.conf}}</span>
+      </div>
+
+    </div>
 
 
-  <div *ngIf="detectionState == detectionStateEnum.cameraDeactivated">
+  </div>
+
+
+  <div *ngIf="detectionState==detectionStateEnum.cameraDeactivated">
     Please activate the camera in your browser settings.
   </div>
 
-  <div @openClose *ngIf="detectionState == detectionStateEnum.neutral" class="message">
+  <div @openClose *ngIf="detectionState != detectionStateEnum.hasMask && detectionState != detectionStateEnum.noMask"
+    class="message">
     <p>
       Looking for people...
     </p>
@@ -81,7 +97,8 @@
   </div>
 </div>
 <div id="debug" *ngIf="debug">
-  <button (click)="detectionState = detectionStateEnum.hasMask">Mask</button>
+  <!-- <button (click)="capture()">Capture</button> -->
+  <!-- <button (click)="detectionState = detectionStateEnum.hasMask">Mask</button>
   <button (click)="detectionState = detectionStateEnum.noMask">noMask</button>
-  <button (click)="detectionState = detectionStateEnum.neutral">neutral</button>
+  <button (click)="detectionState = detectionStateEnum.neutral">neutral</button> -->
 </div>

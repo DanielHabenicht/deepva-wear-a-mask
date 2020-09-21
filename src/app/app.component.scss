@@ -68,3 +68,31 @@
   position: fixed;
   bottom: 0px;
 }
+
+.box-container {
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  .face-box {
+    border: red 1px solid;
+    position: relative;
+  }
+}
+
+.overlay-container {
+  position: relative;
+}
+
+#noConnection {
+  position: fixed;
+  color: red;
+  background: white;
+  padding: 3px;
+  top: 50%;
+  z-index: 10;
+  font-size: 3vh;
+}

@@ -6,9 +6,9 @@ name: Build and Deploy
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build-and-deploy:
@@ -22,7 +22,7 @@ jobs:
       - name: Install and Build 🔧
         run: |
           npm install
-          npm run build
+          npm run build-github
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.5.9
