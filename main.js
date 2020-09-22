@@ -242,7 +242,7 @@ class AppComponent {
     }
     analyzeImage(image) {
         this.httpClient
-            .post(src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + '/mask', {
+            .post(src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + '/v1/detection/mask', {
             image: image,
         })
             .subscribe((result) => {
