@@ -4,7 +4,7 @@
     <img src="assets/t-systems-logo.svg">
     <img src="assets/deep-va-logo.svg">
   </div>
-  <div>
+  <div (click)="debug = !debug">
     <img id="claim" src="assets/t-systems-claim.svg">
   </div>
 </div>
@@ -21,12 +21,15 @@
       (initError)="handleInitError($event)" [width]="innerWidth /2" [height]="innerHeight /2" [allowCameraSwitch]="true"
       [trigger]="captureImageObservable" (imageCapture)="capturedImage($event)">
     </webcam>
-    <div class="box-container">
-      <div class="face-box" *ngFor="let face of faces" [ngStyle]="getStyle(face.box)">
-        <span style="color: white">{{face.conf}}</span>
-      </div>
+    <div class="box-container" *ngIf="debug">
+      <ng-container>
+        <div class="face-box" *ngFor="let face of faces" [ngStyle]="getStyle(face.box)">
+          <span style="color: white">{{face.conf}}</span>
+        </div>
+      </ng-container>
 
     </div>
+    <div class="confidence">{{'Confidence: ' + faces[0]?.conf}}</div>
 
 
   </div>

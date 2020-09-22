@@ -83,6 +83,17 @@
   }
 }
 
+.confidence {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 3px;
+  background: white;
+  color: black;
+  display: inline;
+}
+
 .overlay-container {
   position: relative;
 }

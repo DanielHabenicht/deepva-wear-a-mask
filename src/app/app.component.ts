@@ -201,13 +201,13 @@ export class AppComponent implements OnInit {
   }
 
   constructor(private httpClient: HttpClient) {
-    // document.addEventListener('visibilitychange', () => {
-    //   if (document.hidden) {
-    //     this.isHidden = true;
-    //   } else {
-    //     this.isHidden = false;
-    //   }
-    // });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        this.isHidden = true;
+      } else {
+        this.isHidden = false;
+      }
+    });
   }
 
   public handleInitError(error: WebcamInitError): void {
