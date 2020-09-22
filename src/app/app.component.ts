@@ -246,7 +246,7 @@ export class AppComponent implements OnInit {
 
   analyzeImage(image: string) {
     this.httpClient
-      .post<Result>(environment.baseUrl + '/mask', {
+      .post<Result>(environment.baseUrl + '/v1/detection/mask', {
         image: image,
       })
       .subscribe(

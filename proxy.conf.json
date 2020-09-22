@@ -1,10 +1,10 @@
 {
-    "/mask": {
+    "/v1/detection/mask": {
         "target": "http://localhost:5000/v1/detection/mask",
         "secure": false,
         "logLevel": "debug",
         "pathRewrite": {
-            "^/mask": ""
+            "^/v1/detection/mask": ""
         },
         "changeOrigin": true
     }
