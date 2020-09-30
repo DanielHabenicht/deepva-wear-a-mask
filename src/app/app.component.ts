@@ -259,7 +259,7 @@ export class AppComponent implements OnInit {
             this.detectionState = DetectionState.noMask;
           }
           this.faces = result.faces;
-          console.log(this.faces[0].box.xmin, this.faces[0].box.ymin);
+          //console.log(this.faces[0].box.xmin, this.faces[0].box.ymin);
 
           // console.log(result);
         },

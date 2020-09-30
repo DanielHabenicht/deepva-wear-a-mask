@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "npm run config && ng serve --proxy-config proxy.conf.json",
     "config": "ts-node -r dotenv/config set-env.ts",
-    "build": "npm run config && ng build",
-    "build-github": "npm run config && ng build --base-href /deepva-wear-a-mask/",
+    "build": "npm run config && ng build --prod",
+    "build-github": "npm run config && ng build --prod --base-href /deepva-wear-a-mask/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
